@@ -46,18 +46,13 @@ body {
     justify-content: center;
     position: absolute;
     backface-visibility: hidden;
-    transition: all .5s;
+    transition: all .10s;
     transform-style: preserve-3d;
   }
 
 .front-face {
     transform: rotateY(180deg);
   }
-
-.virada .front-face{
-    transform: rotateY(-180deg);
-  }
-
 
 .img {
     width: 100px;
