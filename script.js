@@ -1,21 +1,40 @@
 let qtd_cartas = 0;
 const imagensGif = [
-    './imagens/revertitparrot.gif' ,
+    './imagens/bobrossparrot.gif' ,
+    './imagens/bobrossparrot.gif',
     './imagens/revertitparrot.gif',
     './imagens/revertitparrot.gif',
-    './imagens/revertitparrot.gif',
-    './imagens/revertitparrot.gif',
-    './imagens/revertitparrot.gif',
-    './imagens/revertitparrot.gif',
-    './imagens/revertitparrot.gif',
-    './imagens/revertitparrot.gif'];
+    './imagens/explodyparrot.gif',
+    './imagens/explodyparrot.gif',
+    './imagens/fiestaparrot.gif',
+    './imagens/fiestaparrot.gif',
+    './imagens/metalparrot.gif',
+    './imagens/metalparrot.gif',
+    './imagens/unicornparrot.gif',
+    './imagens/unicornparrot.gif',
+    './imagens/tripletsparrot.gif',
+    './imagens/tripletsparrot.gif'];
+
+let cartasSelecionadas = [];
 
 while (qtd_cartas <4 || qtd_cartas > 14 || qtd_cartas%2 != 0){
 qtd_cartas = Number(prompt("Com quantas cartas você quer jogar?"));
 
-imprimirCartas();
+ for(let i =0; i<qtd_cartas; i++){
+    cartasSelecionadas.push(imagensGif[i]);
+    
+ }
+
 }
 
+cartasSelecionadas.sort(comparador);
+
+
+function comparador() { 
+	return Math.random() - 0.5; 
+}
+console.log(cartasSelecionadas);
+imprimirCartas();
 
 function imprimirCartas(){
     const cartas = document.querySelector(".cartas");
@@ -25,7 +44,7 @@ function imprimirCartas(){
         <img src="./imagens/back.png" width="100px" height="100px" alt="verso" >
         </div>
         <div class="front-face face">
-        <img src="${imagensGif[i]}" width="100px" height="100px" alt="verso" >
+        <img src="${cartasSelecionadas[i]}" width="100px" height="100px" alt="verso" >
         </div>
     </div> `;
     cartas.innerHTML += cardModelo;
