@@ -52,6 +52,7 @@ function imprimirCartas(){
 }
 let cartasViradas = 0;
 let deck = [];
+let parFormado = 0; 
 
 function virar(card){
     
@@ -64,20 +65,28 @@ function virar(card){
     
     cartasViradas++;
     deck.push(card);
+    
+    console.log(cartasViradas);
 
-    //console.log(card);
-    //console.log(deck[deck.length - 1]);
-    //console.log(deck[deck.length - 2]);
-    //console.log(cartasViradas);
+    const ultimoCard = deck[deck.length - 1];
+    const penultimoCard = deck[deck.length - 2];
 
-    if(cartasViradas % 2 === 0){
+
+    if(cartasViradas % 2 === 0 && ultimoCard.innerHTML !== penultimoCard.innerHTML) {
       setTimeout(Desvirar, 1000);
+    } 
+    else if(ultimoCard.innerHTML === penultimoCard.innerHTML){
+        parFormado = parFormado + 1;
+        //console.log(parFormado);
+    }
+
+  if(parFormado*2 == qtd_cartas){
+        setTimeout(mensagemFinal, 500);
     }
      
 }
 
 function Desvirar(){
-
     const ultimoCard = deck[deck.length - 1];
     const penultimoCard = deck[deck.length - 2];
 
@@ -95,4 +104,8 @@ function Desvirar(){
     frontP.classList.toggle("back-face");
     frontP.classList.toggle("front-face");
 
+}
+
+function mensagemFinal() {
+    alert('Parabéns! Você ganhou em ' + cartasViradas + ' jogadas!');
 }
