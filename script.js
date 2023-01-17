@@ -26,6 +26,12 @@ qtd_cartas = Number(prompt("Com quantas cartas você quer jogar?"));
  }
 
 }
+let tempo = 0;
+setInterval(contador,1000);
+function contador(){
+    tempo++
+    document.querySelector(".relogio").innerHTML = tempo;
+}
 
 cartasSelecionadas.sort(comparador);
 
@@ -107,5 +113,9 @@ function Desvirar(){
 }
 
 function mensagemFinal() {
-    alert('Você ganhou em ' + cartasViradas + ' jogadas!');
+    alert('Você ganhou em ' + cartasViradas + ' jogadas!'+ 'A duração do jogo foi de ' + tempo + ' segundos!');
 }
+
+
+
+

@@ -19,6 +19,17 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.relogio{
+  width: 46px;
+  height: 46px;
+  margin-left: 1046px;
+  margin-top: 16px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 36px;
+  color: #75B79E;
+}
 .cartas{
     display: flex;
     flex-wrap: wrap;
