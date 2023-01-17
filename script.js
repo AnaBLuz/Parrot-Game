@@ -39,12 +39,12 @@ imprimirCartas();
 function imprimirCartas(){
     const cartas = document.querySelector(".cartas");
     for(let i = 0; i<qtd_cartas; i++){
-        let cardModelo = ` <div class="card" onclick="virar(this)"; >
+        let cardModelo = ` <div data-test="card" class="card" onclick="virar(this)"; >
         <div class="back-face face">
-        <img src="./imagens/back.png" width="100px" height="100px" alt="verso" >
+        <img data-test="face-down-image" src="./imagens/back.png" width="100px" height="100px" alt="verso" >
         </div>
         <div class="front-face face">
-        <img src="${cartasSelecionadas[i]}" width="100px" height="100px" alt="verso" >
+        <img data-test="face-up-image" src="${cartasSelecionadas[i]}" width="100px" height="100px" alt="verso" >
         </div>
     </div> `;
     cartas.innerHTML += cardModelo;
@@ -107,5 +107,5 @@ function Desvirar(){
 }
 
 function mensagemFinal() {
-    alert('Parabéns! Você ganhou em ' + cartasViradas + ' jogadas!');
+    alert('Você ganhou em ' + cartasViradas + ' jogadas!');
 }
